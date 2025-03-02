@@ -1,0 +1,334 @@
+/* ArdLearn Splash Screen Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #00979c;
+    --secondary-color: #0066cc;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --highlight-color: #00979c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.splash-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.logo-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arduino-logo {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 151, 156, 0.3);
+}
+
+.logo-infinity {
+    width: 60px;
+    height: 30px;
+    border: 5px solid white;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+}
+
+.logo-infinity::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    border: 5px solid white;
+    border-radius: 0 0 30px 30px;
+    top: 20px;
+    left: -5px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.highlight {
+    color: var(--highlight-color);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    max-width: 800px;
+}
+
+h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    max-width: 700px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.start-button-container {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.start-button-container.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 60px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0, 151, 156, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+}
+
+.start-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 151, 156, 0.5);
+    background-color: var(--secondary-color);
+}
+
+.start-button:hover::before {
+    left: 100%;
+}
+
+.start-button i {
+    margin-left: 15px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.start-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Анимированный фон */
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.circuit-line {
+    position: absolute;
+    background-color: rgba(0, 151, 156, 0.1);
+    border-radius: 10px;
+}
+
+.line1 {
+    width: 80%;
+    height: 3px;
+    top: 20%;
+    left: -10%;
+    transform: rotate(-5deg);
+}
+
+.line2 {
+    width: 60%;
+    height: 3px;
+    top: 60%;
+    right: -10%;
+    transform: rotate(8deg);
+}
+
+.line3 {
+    width: 70%;
+    height: 3px;
+    bottom: 30%;
+    left: 20%;
+    transform: rotate(-10deg);
+}
+
+.circuit-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 151, 156, 0.2);
+    border-radius: 50%;
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.circuit-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.5);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.dot1 {
+    top: 20%;
+    left: 30%;
+}
+
+.dot2 {
+    top: 60%;
+    right: 25%;
+}
+
+.dot3 {
+    bottom: 30%;
+    left: 20%;
+}
+
+.dot4 {
+    top: 40%;
+    left: 70%;
+}
+
+.dot5 {
+    bottom: 20%;
+    right: 40%;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
+    .start-button {
+        padding: 15px 40px;
+        font-size: 1.5rem;
+    }
+    
+    .logo-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .arduino-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .logo-infinity {
+        width: 50px;
+        height: 25px;
+    }
+    
+    .logo-infinity::before {
+        width: 50px;
+        height: 25px;
+        top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .start-button {
+        padding: 12px 30px;
+        font-size: 1.3rem;
+    }
+} 

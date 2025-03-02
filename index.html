@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArdLearn - Цифровая образовательная платформа</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="splash-container">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <div class="arduino-logo">
+                    <div class="logo-infinity"></div>
+                </div>
+            </div>
+            <h1>ARD<span class="highlight">LEARN</span></h1>
+        </div>
+        <h2>Цифровая образовательная платформа для изучения Arduino</h2>
+        <p>Инновационное решение для эффективного освоения навыков программирования и электроники</p>
+        
+        <div class="start-button-container">
+            <a href="pres/presentation.html" class="start-button">
+                НАЧАТЬ
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="animated-background">
+            <div class="circuit-line line1"></div>
+            <div class="circuit-line line2"></div>
+            <div class="circuit-line line3"></div>
+            <div class="circuit-dot dot1"></div>
+            <div class="circuit-dot dot2"></div>
+            <div class="circuit-dot dot3"></div>
+            <div class="circuit-dot dot4"></div>
+            <div class="circuit-dot dot5"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация появления элементов
+            setTimeout(() => {
+                document.querySelector('.logo-container').classList.add('visible');
+            }, 300);
+            
+            setTimeout(() => {
+                document.querySelector('h2').classList.add('visible');
+            }, 800);
+            
+            setTimeout(() => {
+                document.querySelector('p').classList.add('visible');
+            }, 1200);
+            
+            setTimeout(() => {
+                document.querySelector('.start-button-container').classList.add('visible');
+            }, 1600);
+            
+            // Эффект при наведении на кнопку
+            const startButton = document.querySelector('.start-button');
+            startButton.addEventListener('mouseover', function() {
+                document.querySelectorAll('.circuit-dot').forEach(dot => {
+                    dot.classList.add('active');
+                });
+            });
+            
+            startButton.addEventListener('mouseout', function() {
+                document.querySelectorAll('.circuit-dot').forEach(dot => {
+                    dot.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
